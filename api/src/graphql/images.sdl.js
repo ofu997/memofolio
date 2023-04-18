@@ -12,8 +12,8 @@ export const schema = gql`
   }
 
   type Query {
-    images: [Image!]! @requireAuth
-    image(id: Int!): Image @requireAuth
+    images: [Image!]! @skipAuth
+    image(id: Int!): Image @skipAuth
   }
 
   input CreateImageInput {
@@ -31,8 +31,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createImage(input: CreateImageInput!): Image! @requireAuth
-    updateImage(id: Int!, input: UpdateImageInput!): Image! @requireAuth
-    deleteImage(id: Int!): Image! @requireAuth
+    createImage(input: CreateImageInput!): Image! @skipAuth
+    updateImage(id: Int!, input: UpdateImageInput!): Image! @skipAuth
+    deleteImage(id: Int!): Image! @skipAuth
   }
 `

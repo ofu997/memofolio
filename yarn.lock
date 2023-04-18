@@ -3794,6 +3794,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mapbox/node-pre-gyp@npm:^1.0.10":
+  version: 1.0.10
+  resolution: "@mapbox/node-pre-gyp@npm:1.0.10"
+  dependencies:
+    detect-libc: ^2.0.0
+    https-proxy-agent: ^5.0.0
+    make-dir: ^3.1.0
+    node-fetch: ^2.6.7
+    nopt: ^5.0.0
+    npmlog: ^5.0.1
+    rimraf: ^3.0.2
+    semver: ^7.3.5
+    tar: ^6.1.11
+  bin:
+    node-pre-gyp: bin/node-pre-gyp
+  checksum: 469f3bc00778c76e0a7ffaf40742482462e05fec31b53c55ad6d6a892894046c0db7bb8543ed49b2cf1926dfcd9af1289985c367c5d20076939f8a889f686e45
+  languageName: node
+  linkType: hard
+
 "@mdx-js/mdx@npm:^1.6.22":
   version: 1.6.22
   resolution: "@mdx-js/mdx@npm:1.6.22"
@@ -8105,6 +8124,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 4.4.2
     "@redwoodjs/graphql-server": 4.4.2
+    bcrypt: ^5.1.0
     bcryptjs: 2.4.3
     jsonwebtoken: ^9.0.0
   languageName: unknown
@@ -9131,6 +9151,16 @@ __metadata:
   version: 0.6.1
   resolution: "batch@npm:0.6.1"
   checksum: 925a13897b4db80d4211082fe287bcf96d297af38e26448c857cee3e095c9792e3b8f26b37d268812e7f38a589f694609de8534a018b1937d7dc9f84e6b387c5
+  languageName: node
+  linkType: hard
+
+"bcrypt@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "bcrypt@npm:5.1.0"
+  dependencies:
+    "@mapbox/node-pre-gyp": ^1.0.10
+    node-addon-api: ^5.0.0
+  checksum: 9a63435ed3cc6f93077335d3abef7c1cbfc8449cd249613c7b3e42a58cd193016b27740f6d9cc767382e24a136214c8bc9d46300a416ab5fb1973d4ab13de64b
   languageName: node
   linkType: hard
 
@@ -11532,6 +11562,13 @@ __metadata:
   version: 6.1.0
   resolution: "detect-indent@npm:6.1.0"
   checksum: dd83cdeda9af219cf77f5e9a0dc31d828c045337386cfb55ce04fad94ba872ee7957336834154f7647b89b899c3c7acc977c57a79b7c776b506240993f97acc7
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "detect-libc@npm:2.0.1"
+  checksum: 153009d0ce4073ea885a97641aa1cc0327ff168b971fa3c770958345ad3ead4618f3747334435dc8edff32c0f56d8ba16dcf5271543c99b24af532b1cf84a61d
   languageName: node
   linkType: hard
 
@@ -18094,6 +18131,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-addon-api@npm:^5.0.0":
+  version: 5.1.0
+  resolution: "node-addon-api@npm:5.1.0"
+  dependencies:
+    node-gyp: latest
+  checksum: 0eb269786124ba6fad9df8007a149e03c199b3e5a3038125dfb3e747c2d5113d406a4e33f4de1ea600aa2339be1f137d55eba1a73ee34e5fff06c52a5c296d1d
+  languageName: node
+  linkType: hard
+
 "node-dir@npm:^0.1.10":
   version: 0.1.17
   resolution: "node-dir@npm:0.1.17"
@@ -18241,6 +18287,17 @@ __metadata:
   bin:
     nodemon: bin/nodemon.js
   checksum: 37e960b995b66e6d9e3b0e435ecc07a45200c4c566c4820a4deb6e7cc234b305e076a8ff0b4dc9c01ee690c663ae82a217d60c591dcbbcd4af1e3a7d0ad2b2c6
+  languageName: node
+  linkType: hard
+
+"nopt@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "nopt@npm:5.0.0"
+  dependencies:
+    abbrev: 1
+  bin:
+    nopt: bin/nopt.js
+  checksum: fc5c4f07155cb455bf5fc3dd149fac421c1a40fd83c6bfe83aa82b52f02c17c5e88301321318adaa27611c8a6811423d51d29deaceab5fa158b585a61a551061
   languageName: node
   linkType: hard
 
@@ -24324,6 +24381,7 @@ __metadata:
     "@redwoodjs/web": 4.4.2
     crypto: ^1.0.1
     crypto-browserify: ^3.12.0
+    jsonwebtoken: ^9.0.0
     prop-types: 15.8.1
     react: 17.0.2
     react-bootstrap: 1.6.0

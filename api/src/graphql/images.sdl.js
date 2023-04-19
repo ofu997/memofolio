@@ -19,7 +19,6 @@ export const schema = gql`
   input CreateImageInput {
     title: String!
     url: String!
-    likes: Int
     userId: Int!
   }
 
@@ -34,5 +33,8 @@ export const schema = gql`
     createImage(input: CreateImageInput!): Image! @skipAuth
     updateImage(id: Int!, input: UpdateImageInput!): Image! @skipAuth
     deleteImage(id: Int!): Image! @skipAuth
+
+    incrementImageLikes(id: Int!, currentUserId: Int!): Image! @skipAuth
+    decrementImageLikes(id: Int!, currentUserId: Int!): Image! @skipAuth
   }
 `

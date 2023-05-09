@@ -1,20 +1,13 @@
-import { Link, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
+import ImagesLayout from 'src/layouts/ImagesLayout'
+import ImageCell from 'src/components/ImageCell'
 
-const ImagePage = () => {
+const ImagePage = ({ id }) => {
   return (
-    <>
-      <MetaTags title="Image" description="Image page" />
-
-      <h1>ImagePage</h1>
-      <p>
-        Find me in <code>./web/src/pages/ImagePage/ImagePage.js</code>
-      </p>
-      <p>
-        My default route is named <code>image</code>, link to me with `
-        <Link to={routes.image()}>Image</Link>`
-      </p>
-    </>
+    <ImagesLayout>
+      <ImageCell
+        id={id}
+      />
+    </ImagesLayout>
   )
 }
 

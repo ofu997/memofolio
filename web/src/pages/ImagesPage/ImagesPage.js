@@ -1,10 +1,13 @@
-import { Link, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
-import ImagesCell from 'src/components/ImagesCell'
+import ImagesLayout from 'src/layouts/ImagesLayout'
+import ImagesCell from "src/components/ImagesCell"
+
 const ImagesPage = () => {
   return (
     <>
-      <ImagesCell />
+      <ImagesLayout>
+        {/* if not logged in, should show a carousel or images with fewer details */}
+        <ImagesCell />
+      </ImagesLayout>
     </>
   )
 }

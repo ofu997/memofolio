@@ -1,26 +1,40 @@
+import Images from 'src/components/Images'
+
 export const QUERY = gql`
   query ImagesQuery {
     images {
       id
+      title
       url
+      likes
+      user:user {
+        handle
+        profilePicUrl
+      }
+      userId
+      createdAt
+      comments {
+        id
+        body
+        imageId
+        user {
+          id
+          handle:handle
+        }
+      }
+      likedBy {
+        id
+      }
     }
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <h2 className='branding-font'>Loading...</h2>
 
-export const Empty = () => <div>Empty</div>
+export const Empty = () => <h2 className='branding-font'>Empty</h2>
 
-export const Failure = ({ error }) => (
-  <div style={{ color: 'red' }}>Error: {error?.message}</div>
-)
+export const Failure = ({ error }) => <h2 className='branding-font'>Error: {error.message}</h2>
 
 export const Success = ({ images }) => {
-  return (
-    <ul>
-      {images.map((item) => {
-        return <img key={item.id} src={item.url} className='cardImg' />
-      })}
-    </ul>
-  )
+  return <Images images={images} />
 }

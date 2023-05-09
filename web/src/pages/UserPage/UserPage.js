@@ -1,19 +1,14 @@
-import { Link, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
+import UserCell from '../../components/UserCell'
+import ImagesLayout from 'src/layouts/ImagesLayout'
 
-const UserPage = () => {
+const UserPage = props => {
   return (
     <>
-      <MetaTags title="User" description="User page" />
-
-      <h1>UserPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/UserPage/UserPage.js</code>
-      </p>
-      <p>
-        My default route is named <code>user</code>, link to me with `
-        <Link to={routes.user()}>User</Link>`
-      </p>
+      <ImagesLayout>
+        <UserCell
+          handle={props.handle}
+        />
+      </ImagesLayout>
     </>
   )
 }

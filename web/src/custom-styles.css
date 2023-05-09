@@ -546,6 +546,17 @@
   margin-bottom: 0px;
 }
 
+.like-and-comment-icons button {
+  border-width: 0px;
+  background-color: transparent;
+}
+
+/* new rule */
+.no-border-no-bg {
+  border-width: 0px;
+  background-color: transparent;
+}
+
 #modal-image-container {
   display: flex;
   justify-content: center;
@@ -555,6 +566,7 @@
 
 #modal-image-container img {
   object-fit: contain;
+  max-width: 100%;
 }
 
 /* right column stuff */

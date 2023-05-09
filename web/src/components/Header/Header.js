@@ -1,9 +1,9 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { navigate, routes } from '@redwoodjs/router';
-import { getLoggedInUser, dummyObject } from 'src/functions/WebFunctions'
+import { getLoggedInUser } from 'src/functions/WebFunctions'
 import { toast } from '@redwoodjs/web/dist/toast';
-import { useMutation, useQuery } from '@redwoodjs/web'
+import { useMutation } from '@redwoodjs/web'
 import { PersonCircle, PlusSquare } from 'react-bootstrap-icons'
 
 const Header = () => {
@@ -59,15 +59,17 @@ const Header = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item className='cntr-v'>
+                <a href={`/u/${user?.handle}`}>
                 {
                   user.profilePicUrl
-                    ? (<Nav.Link href={routes.userPage({ handle: user.handle })} className="navbarItem">
+                    ? (
                         <div className='header-nav-items'>
                           <img src={user.profilePicUrl} className='picBorder' />
                         </div>
-                      </Nav.Link>)
+                      )
                     : (<PersonCircle size={25} color='black' className="navbarItem" />)
                 }
+                </a>
               </Nav.Item>
               <Nav.Item className='cntr-v' >
                 {user.id ? (
@@ -89,7 +91,6 @@ const Header = () => {
       </Navbar>
       {loading && <h2 className='branding-font cntr-h rw-text-center'>Logging out</h2>}
       {error && <h2 className='branding-font cntr-h rw-text-center'>{error}</h2>}
-      {/* {useQueryError && <h2 className='branding-font cntr-h rw-text-center'>{useQueryError}</h2>} */}
   </>
   )
 }

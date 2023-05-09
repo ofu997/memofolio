@@ -1,5 +1,14 @@
-const ImageLayout = ({ children }) => {
-  return <>{children}</>
+import { Toaster } from '@redwoodjs/web/toast'
+import Header from 'src/components/Header/Header'
+
+const ImagesLayout = (props) => {
+  return (
+    <div className="rw-scaffold">
+      <Toaster timeout={1000} />
+      <Header />
+      <main className="rw-main">{props.children}</main>
+    </div>
+  )
 }
 
-export default ImageLayout
+export default ImagesLayout

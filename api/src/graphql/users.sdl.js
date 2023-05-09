@@ -19,9 +19,9 @@ export const schema = gql`
     users: [User!]! @skipAuth
     user(id: Int!): User @skipAuth
 
-    findUserByHandle(handle: String!): User
-    findUserByPassword(password: String!): User
-    findUserByEmail(email: String!): User
+    findUserByHandle(handle: String!): User @skipAuth
+    findUserByPassword(password: String!): User @skipAuth
+    findUserByEmail(email: String!): User @skipAuth
   }
 
   type LoginResponse {

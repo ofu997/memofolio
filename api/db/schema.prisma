@@ -1,57 +1,46 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = "native"
-}
-
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-
 model Image {
-  id        Int    @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   url       String
-  likes     Int?   @default(0)
+  likes     Int?      @default(0)
   createdAt String
-
-  comments Comment[] @relation("1:m. An image has many comments")
-
-  likedBy User[] @relation("1:m. Image is liked by users")
-
-  user   User @relation("1:m. User has many images", fields: [userId], references: [id])
-  userId Int
+  userId    Int
+  comments  Comment[] @relation("1:m. An image has many comments")
+  user      User      @relation("1:m. User has many images", fields: [userId], references: [id])
+  likedBy   User[]    @relation("1:m. Image is liked by users")
 }
 
 model Comment {
-  id   Int    @id @default(autoincrement())
-  body String
-
-  image   Image @relation("1:m. An image has many comments", fields: [imageId], references: [id])
-  imageId Int
-
-  user     User @relation("1:m. User has many comments", fields: [posterId], references: [id])
+  id       Int    @id @default(autoincrement())
+  body     String
+  imageId  Int
   posterId Int
+  image    Image  @relation("1:m. An image has many comments", fields: [imageId], references: [id])
+  user     User   @relation("1:m. User has many comments", fields: [posterId], references: [id])
 }
 
 model User {
-  id                   Int     @id @default(autoincrement())
+  id                   Int       @id @default(autoincrement())
   name                 String
-  handle               String  @unique
-  email                String  @unique
+  handle               String    @unique
+  email                String    @unique
   password             String
-  isAdmin              Boolean @default(false)
+  isAdmin              Boolean   @default(false)
   profilePicUrl        String?
   bio                  String?
   jwt                  String?
   localStoragePassword String?
-
-  userLikes Image[] @relation("1:m. Image is liked by users")
-
-  images Image[] @relation("1:m. User has many images")
-
-  comments Comment[] @relation("1:m. User has many comments")
+  comments             Comment[] @relation("1:m. User has many comments")
+  images               Image[]   @relation("1:m. User has many images")
+  userLikes            Image[]   @relation("1:m. Image is liked by users")
 }

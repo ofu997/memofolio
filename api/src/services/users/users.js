@@ -24,6 +24,8 @@ export const createUser = async ({ input }) => {
   if (handleIsTaken) {
     throw new Error(`Handle: ${handleIsTaken.handle} is already taken`)
   }
+  const handle = input.handle.replace(/@/g, '');
+
   const emailIsTaken = await db.user.findUnique({
     where: { email }
   })
@@ -32,7 +34,7 @@ export const createUser = async ({ input }) => {
   }
   const password = await bcrypt.hash(input.password, 10);
   const isAdmin = (email == "ofu997@gmail.com") ? true : false;
-  const data = { ...input, email, password, isAdmin }
+  const data = { ...input, email, handle, password, isAdmin }
   return db.user.create({
     data,
   })
